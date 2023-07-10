@@ -4,7 +4,7 @@ const headers = {
 };
 export const getTicketsObs = async () => {
   const res = await axios.get(
-    "https://apisaoniken.azure-api.net/CaldenFlow/despachos?status=obs",
+    "https://apisaoniken.azure-api.net/CaldenFlow/despachos?status=obs&&client=aok",
     { headers }
   );
   return res.data.value;
@@ -12,7 +12,7 @@ export const getTicketsObs = async () => {
 
 export const getTicketsForPrint = async () => {
   const res = await axios.get(
-    "https://apisaoniken.azure-api.net/CaldenFlow/despachos?status=forPrint",
+    "https://apisaoniken.azure-api.net/CaldenFlow/despachos?status=forPrint&&client=aok",
     { headers }
   );
   return res.data.value;
