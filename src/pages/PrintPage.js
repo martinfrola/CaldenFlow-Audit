@@ -43,36 +43,69 @@ function PrintDialog({ open, onClose }) {
   const isCuarteo = ticketData.cuarteo === "true";
 
   const storedData = [
-    { label: "Inicio Despacho", value: ticketData["inicio"] },
-    { label: "Fin Despacho", value: ticketData["fin"] },
-    { label: "Cliente", value: ticketData.cliente },
-    { label: "Entrega", value: ticketData.entregaBruta },
-    { label: "Totalizador Inicial", value: ticketData.estadoInicial },
-    { label: "Totalizador Final", value: ticketData.estadoFinal },
-    { label: "Chofer", value: toProperCase(ticketData.choferNombre) },
-    { label: "Patente", value: ticketData.patente },
-    ...(isTabacal
-      ? [
-          { label: "Máquina", value: ticketData.maquina },
-          { label: "Horómetro", value: ticketData.horometro },
-          { label: "Operación", value: ticketData.operacion },
-          { label: "Bloque", value: ticketData.bloqueDescripcion },
-          {
-            label: "Supervisor",
-            value:
-              ticketData.supervisorLegajo + ": " + ticketData.supervisorNombre,
-          },
-        ]
-      : []),
-    ...(isCuarteo
-      ? [
-          {
-            label: "Cuarteo",
-            value: "Sí",
-          },
-        ]
-      : []),
-    { label: "Número de ticket", value: ticketData.numeroVenta },
+    { label: "Inicio", value: ticketData.inicio },
+        { label: "Fin", value: ticketData.fin },
+        { label: "Cliente", value: ticketData.cliente },
+        {
+          label: "Entrega",
+          value: ticketData.entregaBruta,
+        },
+        {
+          label: "T. Inicial",
+          value: ticketData.estadoInicial,
+        },
+        {
+          label: "T. Final",
+          value: ticketData.estadoFinal,
+        },
+        {
+          label: "Chofer",
+          value: ticketData.choferNombre,
+        },
+        {
+          label: "Patente",
+          value: ticketData.patente,
+        },
+        ...(ticketData.operacionVenta !== 'Ledesma Tanques' 
+            ? [
+              {
+                label: "Máquina",
+                value: ticketData.maquina,
+              },
+              {
+                label: "Horómetro",
+                value: ticketData.horometro,
+              },
+              ...(ticketData.operacionVenta !== 'Ledesma Capilar' 
+                ? [
+                    {
+                      label: "Operación",
+                      value: ticketData.operacion,
+                    },
+                  ]
+                : []),
+            
+              {
+                label: "Bloque",
+                value: ticketData.bloqueDescripcion,
+              },
+              {
+                label: "Supervisor",
+                value: ticketData.supervisorLegajo + ": " + ticketData.supervisorNombre,
+              },
+            ]:[]),
+        ...(ticketData.cuarteo == "true"
+          ? [
+              {
+                label: "Cuarteo",
+                value: "Sí",
+              },
+            ]
+          : []),
+        {
+          label: "Número de ticket",
+          value: ticketData.numeroVenta,
+        },
   ];
 
   return (
