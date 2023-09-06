@@ -5,7 +5,9 @@ import {
   DialogContent,
   DialogTitle,
   Typography,
+  Box
 } from "@mui/material";
+import PrintAgro from './PrintAgro'
 import Slide from "@mui/material/Slide";
 import React, { useEffect, useState, useContext } from "react";
 import { GlobalContext } from "../context/GlobalContext";
@@ -116,6 +118,10 @@ function PrintDialog({ open, onClose }) {
       fullWidth
       TransitionComponent={Transition}
     >
+      {ticketData.operacionVenta == 'Agro' ? <PrintAgro /> :
+      <Box>
+
+      
       <DialogTitle
         sx={{
           "@media print": {
@@ -163,7 +169,10 @@ function PrintDialog({ open, onClose }) {
             style={{ maxWidth: "80%" }}
           />
         ) : null}
+        
       </DialogContent>
+      </Box>
+      }
       <DialogActions>
         <Button
           sx={{
