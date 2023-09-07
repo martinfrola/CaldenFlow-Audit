@@ -16,7 +16,7 @@ import LogoCaldenFlow from "../utils/images/logo_audit.png";
 const Nav = () => {
   const { context, setContext } = useContext(GlobalContext);
   const [anchorEl, setAnchorEl] = useState(null);
-  const [selected, setSelected] = useState("Observados");
+  const [selected, setSelected] = useState("Consulta");
 
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -75,9 +75,9 @@ const Nav = () => {
                 </MenuItem>
                 <MenuItem
                   value={"Repimprimir"}
-                  onClick={() => handleDropdownChange("Repimprimir")}
+                  onClick={() => handleDropdownChange("Consulta")}
                 >
-                  Repimprimir
+                  Consulta
                 </MenuItem>
               </Menu>
             </div>

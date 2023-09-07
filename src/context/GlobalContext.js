@@ -5,7 +5,7 @@ export const GlobalContext = createContext();
 // Crea el proveedor del contexto
 export const GlobalContextProvider = ({ children }) => {
   const [context, setContext] = useState({
-    page: "listObs",
+    page: "listPrint",
     selectedTicket: {}
   });
 
