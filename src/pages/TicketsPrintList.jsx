@@ -15,18 +15,18 @@ import ListItemSecondaryAction from "@mui/material/ListItemSecondaryAction";
 import ListItemText from "@mui/material/ListItemText";
 import Paper from "@mui/material/Paper";
 import { GlobalContext } from "../context/GlobalContext";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import DeleteIcon from "@mui/icons-material/Delete";
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 import PrintIcon from "@mui/icons-material/Print";
 import { getTruckTickets } from "../API/tickets";
 import { getTrucks } from "../API/trucks";
 import PrintDialog from "./PrintPage";
-
+import EditDialog from './EditDialog'
 const TicketsPrintList = () => {
   const { context, setContext } = useContext(GlobalContext);
   const [isLoading, setIsLoading] = useState(false);
   const [ticketsData, setTicketsData] = useState([]);
   const [openPrinterDialog, setOpenPrinterDialog] = useState(false);
+  const [openEditDialog,setOpenEditDialog] = useState(false)
   const [selectedPlate, setSelectedPlate] = useState(null);
   const [trucks, setTrucks] = useState([]);
   const [numeroVenta, setNumeroVenta] = useState("");
@@ -48,6 +48,13 @@ const TicketsPrintList = () => {
       selectedTicket: ticket,
     });
     setOpenPrinterDialog(true);
+  };
+  const handleEdit = (ticket) => {
+    setContext({
+      ...context,
+      selectedTicket: ticket,
+    });
+    setOpenEditDialog(true);
   };
 
   const handleSearch = () => {
@@ -135,6 +142,13 @@ const TicketsPrintList = () => {
                     >
                       <PrintIcon />
                     </IconButton>
+                    <IconButton
+                      onClick={() => {
+                        handleEdit(ticket);
+                      }}
+                    >
+                      <ModeEditIcon />
+                    </IconButton>
                   </ListItemSecondaryAction>
                 </ListItem>
               </Paper>
@@ -145,6 +159,13 @@ const TicketsPrintList = () => {
       <PrintDialog
         open={openPrinterDialog}
         onClose={() => setOpenPrinterDialog(false)}
+      />
+      <EditDialog
+        open={openEditDialog}
+        onClose={() => {
+          setOpenEditDialog(false)
+          setTicketsData([])
+        }}
       />
     </div>
   );
