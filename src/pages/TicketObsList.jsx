@@ -37,7 +37,7 @@ const TicketObsList = () => {
   const handleClick = async (ticket) => {
     setContext({
       ...context,
-      page: "observations",
+      page: "newTicket",
       selectedTicket: ticket,
     });
   };

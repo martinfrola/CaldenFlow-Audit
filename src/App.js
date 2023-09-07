@@ -3,7 +3,7 @@ import { useContext } from "react";
 import TicketObsList from "./pages/TicketObsList";
 import TicketsPrintList from "./pages/TicketsPrintList";
 import TicketDetails from "./pages/TicketDetails";
-import Observations from "./pages/Observations";
+import NewTicket from "./pages/NewTicket";
 import { GlobalContext } from "./context/GlobalContext";
 import Nav from "./components/Nav";
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
       {context.page === "listObs" && <TicketObsList />}
       {context.page === "listPrint" && <TicketsPrintList />}
       {context.page === "details" && <TicketDetails />}
-      {context.page === "observations" && <Observations />}
+      {context.page === "newTicket" && <NewTicket />}
     </div>
   );
 }
