@@ -12,6 +12,7 @@ import {
 import { Settings } from "@mui/icons-material";
 import { GlobalContext } from "../context/GlobalContext";
 import LogoCaldenFlow from "../utils/images/logo_audit.png";
+import LogoAoniken from '../utils/images/logo_aoniken.png'
 
 const Nav = () => {
   const { context, setContext } = useContext(GlobalContext);
@@ -47,8 +48,10 @@ const Nav = () => {
           }}
         >
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <img src={LogoCaldenFlow} alt="Logo CaldenFlow" width="170px" />
+            <img src={LogoCaldenFlow} alt="Logo CaldenFlow" width="130px" />
+            <img src={LogoAoniken} alt="Logo Aoniken" height="33px" />
           </Box>
+
           {(context.page == "listObs" || context.page == "listPrint") && (
             <div>
               <Button
