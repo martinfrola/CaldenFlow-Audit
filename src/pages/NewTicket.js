@@ -123,6 +123,7 @@ export default function NewTicket({  }) {
     newTicket.choferNombre = selectedDriver.Nombre
     newTicket.choferLegajo = selectedDriver.Legajo
     newTicket.patenteAuxilio = ""
+    newTicket.producto = '0104'
     newTicket.cliente = selectedOperacionVenta.split(" ").shift()
     if(selectedOperacionVenta == "Tabacal" || selectedOperacionVenta == 'Ledesma Capilar'){
       newTicket.supervisorLegajo = selectedSupervisor.Legajo.toString()
