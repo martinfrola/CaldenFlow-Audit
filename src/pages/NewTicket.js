@@ -122,6 +122,7 @@ export default function NewTicket({  }) {
     newTicket.estadoFinal = totFinal + " litros"
     newTicket.choferNombre = selectedDriver.Nombre
     newTicket.choferLegajo = selectedDriver.Legajo
+    newTicket.patenteAuxilio = ""
     newTicket.cliente = selectedOperacionVenta.split(" ").shift()
     if(selectedOperacionVenta == "Tabacal" || selectedOperacionVenta == 'Ledesma Capilar'){
       newTicket.supervisorLegajo = selectedSupervisor.Legajo.toString()
